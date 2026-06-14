@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
-        print("Gather all the cheese and find the deposit zone!"); 
+        print("Rat: \"Pss... gather me all the cheese and I will let you in!\""); // Print the rat's intro dialogue to the Unity Console when press play
     }
 
     void Update() 
@@ -48,20 +48,20 @@ public class PlayerScript : MonoBehaviour
             if(heldCheese > 0)
             {
                 depositedScore += heldCheese;
-                print("Deposited " + heldCheese + " cheese! Total deposited: " + depositedScore + " / " + targetScore);
+                print("Gave " + heldCheese + " cheese! Total given: " + depositedScore + " / " + targetScore);
                 heldCheese = 0; // Empty the player's inventory after depositing
             }
 
             // Check if the door can open
             if(depositedScore >= targetScore) 
             {
-                print("Target reached! The door is opening."); 
+                print("Rat: \"Okay fine. Here you go...\""); 
                 currentDoor.Interact(); 
                 currentDoor = null; // Clear the door so it doesn't trigger again
             }
             else 
             {
-                print("Not enough yet! You still need to deposit " + (targetScore - depositedScore) + " more!"); 
+                print("Rat: \"Not enough! GET ME " + (targetScore - depositedScore) + " MORE!\""); 
             }
         }
         else 
@@ -89,7 +89,7 @@ public class PlayerScript : MonoBehaviour
         if(other.gameObject.tag == "DepositZone") 
         {
             currentDoor = other.GetComponentInParent<DoorScript>(); 
-            print("Entered deposit zone. Press [E] to deposit your cheese."); 
+            print("Press [ E ] to give cheese"); 
         }
     }
 
