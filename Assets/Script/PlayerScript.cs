@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; 
 
 public class PlayerScript : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
-        print("Rat: \"Pss... gather me all the cheese and I will let you in!\""); // Print the rat's intro dialogue to the Unity Console when press play
+        print("Rat: \"Pss... gather me all the cheese and I will let you in! Becareful of the water\""); 
     }
 
     void Update() 
@@ -85,6 +86,14 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
+        if(other.gameObject.tag == "Hazard")
+        {
+            print("You fell into the water! ");
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
+        }
+
         // Check if the player walked into the transparent deposit box
         if(other.gameObject.tag == "DepositZone") 
         {
