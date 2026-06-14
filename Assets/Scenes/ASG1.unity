@@ -4106,7 +4106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239d91d7c13005041afe561356083917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  targetScore: 6
+  targetScore: 18
 --- !u!1 &1237235725
 GameObject:
   m_ObjectHideFlags: 0
